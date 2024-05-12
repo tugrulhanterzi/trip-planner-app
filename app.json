@@ -1,0 +1,72 @@
+{
+  "expo": {
+    "name": "tripplanner",
+    "scheme": "tripplanner",
+    "slug": "tripplanner",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/tempExpoIcons/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/tempExpoIcons/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tripplanner.app",
+      "requireFullScreen": true,
+      "buildNumber": "1",
+      "infoPlist": {
+        "UISupportedInterfaceOrientations": ["UIInterfaceOrientationPortrait"]
+      }
+    },
+    "android": {
+      "versionCode": 1,
+      "softwareKeyboardLayoutMode": "resize",
+      "package": "com.tripplanner.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/tempExpoIcons/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "FOREGROUND_SERVICE",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "WAKE_LOCK",
+        "MODIFY_AUDIO_SETTINGS",
+        "ACCESS_WIFI_STATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "tripplanner",
+              "pathPrefix": "/"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "web": {
+      "favicon": "./src/assets/tempExpoIcons/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ]
+    ],
+    "experiments": {
+      "tsconfigPaths": false
+    }
+  }
+}
