@@ -1,5 +1,5 @@
 import React, { Key, useMemo, useRef } from 'react';
-import { Dimensions, Image, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import MapView, { Callout, LatLng, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
@@ -15,8 +15,6 @@ import { MAP_API_KEY } from '_utils/constants';
 import fakeDatas from '../../../../fakeDatas.json';
 import styles from './Map.style';
 import { useMap } from './hooks/useMap.hook';
-
-const { width, height } = Dimensions.get('window');
 
 const Map = () => {
   const theme = useTheme();
@@ -43,7 +41,6 @@ const Map = () => {
 
   const inputRefs = useRef<any>([React.createRef()]);
   const mapRef = useRef<MapView>(null);
-  const [zoom, setZoom] = React.useState(0);
   // Kullanıcının konumunu haritada göstermek için
   React.useEffect(() => {
     const isCurrentLocationExist = markers.some(
@@ -103,8 +100,8 @@ const Map = () => {
         left: scale(10),
       }}
       initialRegion={{
-        latitude: currentLocation?.latitude,
-        longitude: currentLocation?.longitude,
+        latitude: 41.008583,
+        longitude: 28.980175,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }}>
@@ -126,19 +123,35 @@ const Map = () => {
               setInputCount(prev => [...prev, prev.length]);
               inputRefs.current.push(React.createRef());
             }}>
-            <View
-              style={{
-                backgroundColor: 'red',
-                borderRadius: 4,
-                padding: 4,
-                elevation: 4,
-                shadowColor: 'black',
-                shadowOffset: { width: 0, height: 2 },
-              }}>
-              <Image source={{ uri: item?.photoURL }} style={{ width: 100, height: 100 }} />
-              <Text>{item?.name}</Text>
+            <View style={{}}>
+              <Image
+                source={{ uri: item?.photoURL }}
+                style={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: 8,
+                  objectFit: 'cover',
+                  margin: 5,
+                }}
+              />
+              <View style={{ height: 0.5, marginHorizontal: 5, backgroundColor: 'gray' }} />
+              <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', margin: 2 }}>
+                {item?.name}
+              </Text>
             </View>
           </Callout>
+        </Marker>
+      ))}
+
+      {fakeDatas.map((item: any, index: any) => (
+        <Marker
+          key={index}
+          coordinate={{
+            latitude: item.coordinates.latitude - 0.0001,
+            longitude: item.coordinates.longitude,
+          }}
+          title={item.title}>
+          <Text style={{ padding: 2, backgroundColor: 'black', color: 'white' }}>{item.name}</Text>
         </Marker>
       ))}
 

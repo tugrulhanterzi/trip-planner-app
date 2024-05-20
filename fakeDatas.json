@@ -5,15 +5,15 @@
       "latitude": 41.008583,
       "longitude": 28.980175
     },
-    "photoURL": "https://www.ayasofyacamii.gov.tr/themes/tema/img/menu_alt.jpg",
-    "description": "Ayasofya, İstanbul'un Fatih ilçesinde, Sarayburnu'nda, Sultanahmet Meydanı'nda yer alan ve 537 ile 1453 yılları arasında Doğu Roma İmparatorluğu ve 1453 ile 1935 yılları arasında Osmanlı İmparatorluğu tarafından kilise ve cami olarak kullanılan, 1935 yılından bu yana ise müze olarak hizmet veren bina."
+    "photoURL": "https://www.ayasofyacamii.gov.tr/themes/tema/img/menu_alt.jpg"
   },
   {
     "name": "Topkapı Sarayı",
     "coordinates": {
       "latitude": 41.011461,
       "longitude": 28.983548
-    }
+    },
+    "photoURL": "https://www.topkapisarayi.gov.tr/themes/tema/img/menu_alt.jpg"
   },
   {
     "name": "Sultanahmet Camii",
