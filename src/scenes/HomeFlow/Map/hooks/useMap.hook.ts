@@ -120,6 +120,7 @@ const useMap = () => {
     setInputCount,
     onSaveHandler,
     deleteMarker,
+    setMarkers,
   };
 };
 

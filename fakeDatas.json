@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Ayasofya",
+    "coordinates": {
+      "latitude": 41.008583,
+      "longitude": 28.980175
+    },
+    "photoURL": "https://www.ayasofyacamii.gov.tr/themes/tema/img/menu_alt.jpg",
+    "description": "Ayasofya, İstanbul'un Fatih ilçesinde, Sarayburnu'nda, Sultanahmet Meydanı'nda yer alan ve 537 ile 1453 yılları arasında Doğu Roma İmparatorluğu ve 1453 ile 1935 yılları arasında Osmanlı İmparatorluğu tarafından kilise ve cami olarak kullanılan, 1935 yılından bu yana ise müze olarak hizmet veren bina."
+  },
+  {
+    "name": "Topkapı Sarayı",
+    "coordinates": {
+      "latitude": 41.011461,
+      "longitude": 28.983548
+    }
+  },
+  {
+    "name": "Sultanahmet Camii",
+    "coordinates": {
+      "latitude": 41.005409,
+      "longitude": 28.976813
+    }
+  },
+  {
+    "name": "Galata Kulesi",
+    "coordinates": {
+      "latitude": 41.025629,
+      "longitude": 28.974089
+    }
+  },
+  {
+    "name": "Dolmabahçe Sarayı",
+    "coordinates": {
+      "latitude": 41.039527,
+      "longitude": 29.000757
+    }
+  },
+  {
+    "name": "Kapalıçarşı",
+    "coordinates": {
+      "latitude": 41.010713,
+      "longitude": 28.968019
+    }
+  },
+  {
+    "name": "İstiklal Caddesi",
+    "coordinates": {
+      "latitude": 41.034191,
+      "longitude": 28.979739
+    }
+  },
+  {
+    "name": "Kız Kulesi",
+    "coordinates": {
+      "latitude": 41.021038,
+      "longitude": 29.004389
+    }
+  },
+  {
+    "name": "Taksim Meydanı",
+    "coordinates": {
+      "latitude": 41.037019,
+      "longitude": 28.985579
+    }
+  },
+  {
+    "name": "Çırağan Sarayı",
+    "coordinates": {
+      "latitude": 41.043072,
+      "longitude": 29.013941
+    }
+  }
+]
