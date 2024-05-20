@@ -100,8 +100,8 @@ const Map = () => {
         left: scale(10),
       }}
       initialRegion={{
-        latitude: 41.008583,
-        longitude: 28.980175,
+        latitude: currentLocation?.latitude,
+        longitude: currentLocation?.longitude,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       }}>
