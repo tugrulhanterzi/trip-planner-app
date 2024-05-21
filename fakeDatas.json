@@ -70,5 +70,93 @@
       "latitude": 41.043072,
       "longitude": 29.013941
     }
+  },
+  {
+    "name": "Paşabahçe Mesire Alanı",
+    "coordinates": {
+      "latitude": 39.791884602094385,
+      "longitude": 36.99965078483772
+    },
+    "photoURL": "https://www.sivasagel.com/wp-content/uploads/2019/08/EAKsU9OXUAE2G53-768x499.jpg"
+  },
+  {
+    "name": "Sivas Arkeoloji Müzesi",
+    "coordinates": {
+      "latitude": 39.75571232597529,
+      "longitude": 37.01161065633096
+    },
+    "photoURL": "https://muze.gov.tr/s3/SectionPicture/SP_50af8b18-8bfd-4173-b2f2-768c2cc5cb98.jpg"
+  },
+  {
+    "name": "Divriği Ulu Camii ve Darüşşifası",
+    "coordinates": {
+      "latitude": 39.37111913329386,
+      "longitude": 38.12170486016942
+    },
+    "photoURL": "https://cgtnturk.com/wp-content/uploads/2024/02/sivas_divrigi_dunya_mirasi_unesco_2.jpg"
+  },
+  {
+    "name": "Gökpınar Gölü",
+    "coordinates": {
+      "latitude": 38.65644929243706,
+      "longitude": 37.30483291025711
+    },
+    "photoURL": "https://res.cloudinary.com/turna/image/upload/v1658747140/sivas_g%C3%B6kp%C4%B1nar_g%C3%B6l%C3%BC.jpg"
+  },
+  {
+    "name": "Gök Medrese",
+    "coordinates": {
+      "latitude": 39.74446275830544,
+      "longitude": 37.0165999470754
+    },
+    "photoURL": "https://visitsivas.com/assets/images/muzeler/galeri/00_IMG_5168.jpg"
+  },
+  {
+    "name": "Sivas Kalesi",
+    "coordinates": {
+      "latitude": 39.744887931176955,
+      "longitude": 37.01389462004649
+    },
+    "photoURL": "https://www.bizimsivas.com.tr/images/haberler/2023/07/tmpbc764ie7.jpg"
+  },
+  {
+    "name": "Sivas Atatürk ve Kongre Müzesi",
+    "coordinates": {
+      "latitude": 39.74987305003593,
+      "longitude": 37.01363208435763
+    },
+    "photoURL": "https://visitsivas.com/assets/images/yerler/galeri/850_450_kongre_m%C3%BCzesi2.jpg"
+  },
+  {
+    "name": "Hafik Gölü",
+    "coordinates": {
+      "latitude": 39.86964112921384,
+      "longitude": 37.383658810305285
+    },
+    "photoURL": "http://www.sivas.gov.tr/kurumlar/sivas.gov.tr/Sehir_Etiketleri/Hafik-Golu/Hafik-Golu_metin.jpg"
+  },
+  {
+    "name": "Sıcak Çermik Kaplıcası",
+    "coordinates": {
+      "latitude": 39.75865695188989,
+      "longitude": 36.736845512151895
+    },
+    "photoURL": "http://www.sivas.gov.tr/kurumlar/sivas.gov.tr/Sehir_Etiketleri/Sicak-Cermik/Sicak-Cermik_008.jpg"
+  },
+  {
+    "name": "Aşık Veysel Müzesi",
+    "coordinates": {
+      "latitude": 39.46096338722269,
+      "longitude": 36.16526651028881
+    },
+    "photoURL": "https://upload.wikimedia.org/wikipedia/commons/b/bb/A%C5%9F%C4%B1k_Veysel_M%C3%BCzesi_%28Ev_ve_Ek_Bina%29.jpg"
+  },
+  {
+    "name": "Şuğul Vadisi",
+    "coordinates": {
+      "latitude": 38.739025038710274,
+      "longitude": 37.239840877434446
+    },
+    "photoURL": "http://www.sivas.gov.tr/kurumlar/sivas.gov.tr/Sehir_Etiketleri/Sugul-Vadisi/Sugul-Vadisi_metin.jpg"
   }
 ]
