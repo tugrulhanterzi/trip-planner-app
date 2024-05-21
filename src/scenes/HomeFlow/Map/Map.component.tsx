@@ -1,7 +1,7 @@
 import React, { Key, useMemo, useRef } from 'react';
-import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import MapView, { Callout, LatLng, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Callout, LatLng, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
 import { IconPlus, IconTrash } from 'tabler-react-native/icons';
@@ -15,6 +15,10 @@ import { MAP_API_KEY } from '_utils/constants';
 import fakeDatas from '../../../../fakeDatas.json';
 import styles from './Map.style';
 import { useMap } from './hooks/useMap.hook';
+
+interface ExtentedMarker extends LatLng {
+  title?: string;
+}
 
 const Map = () => {
   const theme = useTheme();
@@ -59,7 +63,7 @@ const Map = () => {
   }, [currentLocation]);
   // Kullanıcının seçtiği adresleri inputlara yazdırmak için
   React.useEffect(() => {
-    markers.forEach((marker: LatLng, index: number) => {
+    markers.forEach((marker: ExtentedMarker, index: number) => {
       if (inputRefs.current[index]) {
         inputRefs.current[index].current?.setAddressText(marker?.title);
       }
@@ -90,7 +94,6 @@ const Map = () => {
     <MapView
       ref={mapRef}
       style={mapStyle}
-      provider={PROVIDER_GOOGLE}
       showsUserLocation
       showsMyLocationButton
       mapPadding={{
@@ -155,7 +158,7 @@ const Map = () => {
         </Marker>
       ))}
 
-      {markers.map((marker: LatLng, index: Key | null | undefined) => (
+      {markers.map((marker: ExtentedMarker, index: Key | null | undefined) => (
         <Marker
           key={index}
           coordinate={marker}

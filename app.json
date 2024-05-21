@@ -12,14 +12,18 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.tripplanner.app",
       "requireFullScreen": true,
       "buildNumber": "1",
       "infoPlist": {
-        "UISupportedInterfaceOrientations": ["UIInterfaceOrientationPortrait"]
+        "UISupportedInterfaceOrientations": [
+          "UIInterfaceOrientationPortrait"
+        ]
       }
     },
     "android": {
@@ -50,7 +54,10 @@
               "pathPrefix": "/"
             }
           ],
-          "category": ["BROWSABLE", "DEFAULT"]
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
         }
       ]
     },
@@ -63,7 +70,10 @@
         {
           "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
         }
-      ]
+      ],
+      "expo-build-properties",
+      "expo-font",
+      "expo-localization"
     ],
     "experiments": {
       "tsconfigPaths": false
