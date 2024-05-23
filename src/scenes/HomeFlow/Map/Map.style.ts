@@ -39,8 +39,8 @@ const styles = (theme: ThemeType) =>
     saveButtonContainer: {
       position: 'absolute',
       bottom: verticalScale(20),
-      right: scale(50),
-      left: scale(50),
+      right: 0,
+      left: 0,
     },
   });
 

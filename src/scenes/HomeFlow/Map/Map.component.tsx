@@ -1,20 +1,34 @@
 import React, { Key, useMemo, useRef } from 'react';
-import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Button,
+  Image,
+  Linking,
+  Modal,
+  Platform,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import MapView, { Callout, LatLng, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
+import { IconMapShare } from 'tabler-react-native/icons';
 import { IconPlus, IconTrash } from 'tabler-react-native/icons';
 
 import { CustomButton } from '_atoms';
 import { AppWrapper } from '_organisms';
-import { scale } from '_styles/scaling';
+import { scale, verticalScale } from '_styles/scaling';
 import { useTheme } from '_styles/theming';
 import { MAP_API_KEY } from '_utils/constants';
 
 import fakeDatas from '../../../../fakeDatas.json';
 import styles from './Map.style';
 import { useMap } from './hooks/useMap.hook';
+
+interface ExtendedMarker extends LatLng {
+  title: string;
+}
 
 const Map = () => {
   const theme = useTheme();
@@ -59,7 +73,7 @@ const Map = () => {
   }, [currentLocation]);
   // Kullanıcının seçtiği adresleri inputlara yazdırmak için
   React.useEffect(() => {
-    markers.forEach((marker: LatLng, index: number) => {
+    markers.forEach((marker: ExtendedMarker, index: number) => {
       if (inputRefs.current[index]) {
         inputRefs.current[index].current?.setAddressText(marker?.title);
       }
@@ -85,6 +99,22 @@ const Map = () => {
       );
     }
   }, [markers]);
+
+  const routeToExternalMap = () => {
+    const origin = markers[0];
+    const destination = markers[markers.length - 1];
+    const waypoints = markers.slice(1, markers.length - 1);
+
+    let url = '';
+
+    if (Platform.OS === 'ios') {
+      url = `http://maps.apple.com/?saddr=${origin.latitude},${origin.longitude}&daddr=${waypoints.map((wp: ExtendedMarker) => `${wp.latitude},${wp.longitude}`).join(' to:')} to:${destination.latitude},${destination.longitude}`;
+    } else {
+      url = `https://www.google.com/maps/dir/?api=1&origin=${origin.latitude},${origin.longitude}&destination=${destination.latitude},${destination.longitude}&waypoints=${waypoints.map((wp: ExtendedMarker) => `${wp.latitude},${wp.longitude}`).join('|')}`;
+    }
+
+    Linking.openURL(url);
+  };
 
   const RenderMap = () => (
     <MapView
@@ -123,7 +153,7 @@ const Map = () => {
               setInputCount(prev => [...prev, prev.length]);
               inputRefs.current.push(React.createRef());
             }}>
-            <View style={{}}>
+            <View style={{ alignItems: 'center' }}>
               <Image
                 source={{ uri: item?.photoURL }}
                 style={{
@@ -134,7 +164,7 @@ const Map = () => {
                   margin: 5,
                 }}
               />
-              <View style={{ height: 0.5, marginHorizontal: 5, backgroundColor: 'gray' }} />
+              <View style={{ height: 0.5, width: '95%', backgroundColor: 'gray' }} />
               <Text style={{ fontWeight: '500', fontSize: 16, textAlign: 'center', margin: 2 }}>
                 {item?.name}
               </Text>
@@ -155,7 +185,7 @@ const Map = () => {
         </Marker>
       ))}
 
-      {markers.map((marker: LatLng, index: Key | null | undefined) => (
+      {markers.map((marker: ExtendedMarker, index: Key | null | undefined) => (
         <Marker
           key={index}
           coordinate={marker}
@@ -288,8 +318,30 @@ const Map = () => {
           }}
         />
       ))}
-      <View style={saveButtonContainer}>
-        <CustomButton title='Rotayı Kaydet' onPress={onSaveHandler} />
+      <View
+        style={[
+          saveButtonContainer,
+          {
+            paddingHorizontal: scale(20),
+            flexDirection: 'row',
+            gap: scale(10),
+          },
+        ]}>
+        <CustomButton overrideStyle={{ flex: 1 }} title='Rotayı Kaydet' onPress={onSaveHandler} />
+        <TouchableOpacity
+          onPress={routeToExternalMap}
+          style={{
+            height: '100%',
+            backgroundColor: 'white',
+            aspectRatio: 1,
+            borderRadius: 16,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderWidth: 2,
+            borderColor: '#081C2C',
+          }}>
+          <IconMapShare size={scale(24)} color='#081C2C' stroke={scale(2)} />
+        </TouchableOpacity>
       </View>
     </AppWrapper>
   );
