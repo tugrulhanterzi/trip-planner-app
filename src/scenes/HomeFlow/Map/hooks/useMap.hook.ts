@@ -3,6 +3,7 @@ import { Alert, Linking } from 'react-native';
 
 import * as Location from 'expo-location';
 import moment from 'moment';
+import { addDocument, getDocument } from 'src/helpers/documentServices';
 
 import { StorageKeys, getStorageItem, setStorageItem } from '_utils/storageHandler';
 
@@ -100,11 +101,21 @@ const useMap = () => {
         ? [...parsedRouteItems, newRouteItem]
         : [newRouteItem];
       await setStorageItem(StorageKeys.RouteItems, JSON.stringify(updatedRouteItems));
+      await addRouteToFirebase(newRouteItem);
       Alert.alert('Başarılı', 'Rota başarıyla kaydedildi');
     } catch (error) {
       console.log('save error', error);
       Alert.alert('Hata', 'Kayıt sırasında bir hata oluştu');
     }
+  };
+
+  const addRouteToFirebase = async (newRouteItem: any) => {
+    const storedUser = await getStorageItem(StorageKeys.User);
+    const user: { id: string; routes?: any[] } = await getDocument('users', storedUser);
+
+    const updatedRoutes = user?.routes ? [...user.routes, newRouteItem] : [newRouteItem];
+
+    await addDocument(storedUser, 'users', { ...user, routes: updatedRoutes });
   };
 
   const deleteMarker = (index: number) => {

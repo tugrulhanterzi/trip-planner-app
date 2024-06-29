@@ -15,6 +15,7 @@ const clearStorage = async () => {
 };
 
 enum StorageKeys {
+  User = 'User',
   Language = 'Language',
   RouteItems = 'RouteItems',
 }

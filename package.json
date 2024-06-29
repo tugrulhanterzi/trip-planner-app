@@ -38,6 +38,7 @@
     "expo-status-bar": "~1.6.0",
     "expo-system-ui": "~2.4.0",
     "expo-updates": "~0.18.19",
+    "firebase": "^10.12.2",
     "formik": "^2.4.5",
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
